@@ -75,13 +75,32 @@ header .container {
   letter-spacing: 0.02em;
   color: #2e2f42;
   padding: 24px 0;
-
   display: block;
+
+  position: relative;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link:focus {
   color: #404bbf;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+}
+
+.nav-link:active::after {
+  width: 100%;
 }
 
 .contact-block {
@@ -100,6 +119,10 @@ header .container {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-information:hover,
@@ -112,6 +135,15 @@ header .container {
   color: #ffffff;
   padding: 188px 0;
   text-align: center;
+
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-size: cover;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .main-title {
@@ -142,6 +174,10 @@ header .container {
   margin-top: 48px;
   gap: 10px;
   box-shadow: 0px 4px 4px 0px #00000026;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service:hover,
@@ -166,6 +202,13 @@ header .container {
   overflow: hidden;
 }
 
+.icon-container {
+  padding: 24px 100px;
+  border: 1px solid rgba(142, 143, 153, 1);
+  border-radius: 4px;
+  background-color: #f4f4fd;
+}
+
 .about-us-list {
   display: flex;
   gap: 24px;
@@ -181,7 +224,7 @@ header .container {
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: #2e2f42;
-  margin-bottom: 8px;
+  margin: 8px 0;
 }
 
 .title-text {
@@ -214,16 +257,14 @@ header .container {
 
 .item-team {
   width: calc((100% - 72px) / 4);
-  border-radius: 0px 0px 4px 4px;
-
-  box-shadow: 0px 2px 1px 0px #2e2f4214;
-  box-shadow: 0px 1px 1px 0px #2e2f4229;
-  box-shadow: 0px 1px 6px 0px #2e2f4214;
+  box-shadow: 0px 2px 1px 0px #2e2f4214, 0px 1px 1px 0px #2e2f4229,
+    0px 1px 6px 0px #2e2f4214;
 }
 
 .card {
   padding: 32px 0;
-  background-color: #ffffff;
+  background-color: #fff;
+  border-radius: 0px 0px 4px 4px;
 }
 
 .title-name {
@@ -244,6 +285,43 @@ header .container {
   text-align: center;
   background-color: #ffffff;
   color: #434455;
+  margin-bottom: 8px;
+}
+
+.card-socials-list {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.card-socials-item {
+  display: flex;
+  width: 40px;
+  height: 40px;
+}
+
+.card-socials-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-socials-link:hover,
+.card-socials-link:focus {
+  background-color: #404bbf;
+}
+
+.icon,
+.icon-socials {
+  fill: none;
 }
 
 .fourth-section {
@@ -271,6 +349,37 @@ header .container {
 
 .item-portfolio {
   width: calc((100% - 48px) / 3);
+
+  position: relative;
+  overflow: hidden;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  padding: 40px 32px 0 32px;
+  color: #f4f4fd;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  transform: translateY(100%);
+  transition: transform 1000ms ease-in-out;
+}
+
+.item-portfolio:hover .overlay {
+  transform: translateY(0);
+  height: 300px;
+}
+
+.item-portfolio:hover {
+  box-shadow: 0px 2px 1px 0px #2e2f4214, 0px 1px 1px 0px #2e2f4229,
+    0px 1px 6px 0px #2e2f4214;
 }
 
 .card-portfolio {
@@ -300,6 +409,10 @@ header .container {
   padding: 100px 0;
 }
 
+.tagline-list {
+  display: flex;
+}
+
 .tagline-logo {
   display: inline-block;
   margin-bottom: 16px;
@@ -315,4 +428,43 @@ header .container {
   line-height: 1.5;
   letter-spacing: 0.02em;
   max-width: 264px;
+  margin-right: 120px;
+}
+
+.tagline-title {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.tagline-socials-list {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.tagline-socials-item {
+  display: flex;
+  width: 40px;
+  height: 40px;
+}
+
+.tagline-socials-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tagline-socials-link:hover,
+.tagline-socials-link:focus {
+  background-color: #31d0aa;
 }
